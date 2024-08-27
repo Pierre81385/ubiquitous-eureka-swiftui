@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1330BF72C7E879D0016036F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1330BF62C7E879D0016036F /* GoogleService-Info.plist */; };
 		B1D920EF2C7E74B8006D4951 /* ubiquitous_eurekaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D920EE2C7E74B8006D4951 /* ubiquitous_eurekaApp.swift */; };
 		B1D920F12C7E74B8006D4951 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D920F02C7E74B8006D4951 /* ContentView.swift */; };
 		B1D920F32C7E74B8006D4951 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D920F22C7E74B8006D4951 /* Item.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B1330BF62C7E879D0016036F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B1D920EB2C7E74B8006D4951 /* ubiquitous-eureka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ubiquitous-eureka.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D920EE2C7E74B8006D4951 /* ubiquitous_eurekaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ubiquitous_eurekaApp.swift; sourceTree = "<group>"; };
 		B1D920F02C7E74B8006D4951 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				B1D920EE2C7E74B8006D4951 /* ubiquitous_eurekaApp.swift */,
+				B1330BF62C7E879D0016036F /* GoogleService-Info.plist */,
 				B1D920F02C7E74B8006D4951 /* ContentView.swift */,
 				B1D920F22C7E74B8006D4951 /* Item.swift */,
 				B1D920F42C7E74B9006D4951 /* Assets.xcassets */,
@@ -130,6 +133,7 @@
 			files = (
 				B1D920F82C7E74B9006D4951 /* Preview Assets.xcassets in Resources */,
 				B1D920F52C7E74B9006D4951 /* Assets.xcassets in Resources */,
+				B1330BF72C7E879D0016036F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
