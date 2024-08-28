@@ -12,7 +12,7 @@ struct LoginView: View {
     @State private var showAlert: Bool = false
     @State private var showRegistration: Bool = false
     @State private var message: String = ""
-    @ObservedObject var fireAuthManager: FireAuthViewModel = FireAuthViewModel()
+    @StateObject var fireAuthManager: FireAuthViewModel = FireAuthViewModel()
 
     var body: some View {
         NavigationStack{

@@ -18,6 +18,8 @@
 		B1109EDE2C7EAA6200633647 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1109EDD2C7EAA6200633647 /* RegistrationView.swift */; };
 		B1109EE02C7EAA6E00633647 /* AuthenticationSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1109EDF2C7EAA6E00633647 /* AuthenticationSuccessView.swift */; };
 		B1109EE22C7EAA7F00633647 /* FireAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1109EE12C7EAA7F00633647 /* FireAuthManager.swift */; };
+		B1F910642C7EC2C200C8C300 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F910632C7EC2C200C8C300 /* LocationManager.swift */; };
+		B1F910662C7EC36000C8C300 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F910652C7EC36000C8C300 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		B1109EDD2C7EAA6200633647 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		B1109EDF2C7EAA6E00633647 /* AuthenticationSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSuccessView.swift; sourceTree = "<group>"; };
 		B1109EE12C7EAA7F00633647 /* FireAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAuthManager.swift; sourceTree = "<group>"; };
+		B1F910632C7EC2C200C8C300 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B1F910652C7EC36000C8C300 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 			children = (
 				B1109EC52C7EA94B00633647 /* ubiquitous_eureka_swiftuiApp.swift */,
 				B1109EC72C7EA94B00633647 /* ContentView.swift */,
+				B1F910622C7EC2B400C8C300 /* Location */,
 				B1109EDA2C7EAA4F00633647 /* Authentication */,
 				B1109EC92C7EA94B00633647 /* Item.swift */,
 				B1109ECB2C7EA94C00633647 /* Assets.xcassets */,
@@ -93,6 +98,15 @@
 				B1109EE12C7EAA7F00633647 /* FireAuthManager.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		B1F910622C7EC2B400C8C300 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				B1F910632C7EC2C200C8C300 /* LocationManager.swift */,
+				B1F910652C7EC36000C8C300 /* MapView.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,8 +190,10 @@
 				B1109EE02C7EAA6E00633647 /* AuthenticationSuccessView.swift in Sources */,
 				B1109EC82C7EA94B00633647 /* ContentView.swift in Sources */,
 				B1109ECA2C7EA94B00633647 /* Item.swift in Sources */,
+				B1F910642C7EC2C200C8C300 /* LocationManager.swift in Sources */,
 				B1109EDC2C7EAA5900633647 /* LoginView.swift in Sources */,
 				B1109EC62C7EA94B00633647 /* ubiquitous_eureka_swiftuiApp.swift in Sources */,
+				B1F910662C7EC36000C8C300 /* MapView.swift in Sources */,
 				B1109EDE2C7EAA6200633647 /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +331,7 @@
 				DEVELOPMENT_TEAM = 6W56PZLJZG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to provide directions, routing, and map views.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -344,6 +361,7 @@
 				DEVELOPMENT_TEAM = 6W56PZLJZG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to provide directions, routing, and map views.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
