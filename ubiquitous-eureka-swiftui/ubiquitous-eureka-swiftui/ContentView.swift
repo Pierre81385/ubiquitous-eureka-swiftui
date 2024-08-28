@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  ubiquitous-eureka
+//  ubiquitous-eureka-swiftui
 //
 //  Created by m1_air on 8/27/24.
 //

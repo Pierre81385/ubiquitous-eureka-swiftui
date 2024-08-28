@@ -7,108 +7,133 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B1330BF72C7E879D0016036F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1330BF62C7E879D0016036F /* GoogleService-Info.plist */; };
-		B1D920EF2C7E74B8006D4951 /* ubiquitous_eurekaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D920EE2C7E74B8006D4951 /* ubiquitous_eurekaApp.swift */; };
-		B1D920F12C7E74B8006D4951 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D920F02C7E74B8006D4951 /* ContentView.swift */; };
-		B1D920F32C7E74B8006D4951 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D920F22C7E74B8006D4951 /* Item.swift */; };
-		B1D920F52C7E74B9006D4951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D920F42C7E74B9006D4951 /* Assets.xcassets */; };
-		B1D920F82C7E74B9006D4951 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D920F72C7E74B9006D4951 /* Preview Assets.xcassets */; };
+		B1109EC62C7EA94B00633647 /* ubiquitous_eureka_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1109EC52C7EA94B00633647 /* ubiquitous_eureka_swiftuiApp.swift */; };
+		B1109EC82C7EA94B00633647 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1109EC72C7EA94B00633647 /* ContentView.swift */; };
+		B1109ECA2C7EA94B00633647 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1109EC92C7EA94B00633647 /* Item.swift */; };
+		B1109ECC2C7EA94C00633647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1109ECB2C7EA94C00633647 /* Assets.xcassets */; };
+		B1109ECF2C7EA94C00633647 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1109ECE2C7EA94C00633647 /* Preview Assets.xcassets */; };
+		B1109ED72C7EA9FB00633647 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B1109ED62C7EA9FB00633647 /* FirebaseAuth */; };
+		B1109ED92C7EAA3600633647 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1109ED82C7EAA3600633647 /* GoogleService-Info.plist */; };
+		B1109EDC2C7EAA5900633647 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1109EDB2C7EAA5900633647 /* LoginView.swift */; };
+		B1109EDE2C7EAA6200633647 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1109EDD2C7EAA6200633647 /* RegistrationView.swift */; };
+		B1109EE02C7EAA6E00633647 /* AuthenticationSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1109EDF2C7EAA6E00633647 /* AuthenticationSuccessView.swift */; };
+		B1109EE22C7EAA7F00633647 /* FireAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1109EE12C7EAA7F00633647 /* FireAuthManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B1330BF62C7E879D0016036F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		B1D920EB2C7E74B8006D4951 /* ubiquitous-eureka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ubiquitous-eureka.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B1D920EE2C7E74B8006D4951 /* ubiquitous_eurekaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ubiquitous_eurekaApp.swift; sourceTree = "<group>"; };
-		B1D920F02C7E74B8006D4951 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B1D920F22C7E74B8006D4951 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		B1D920F42C7E74B9006D4951 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B1D920F72C7E74B9006D4951 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B1109EC22C7EA94B00633647 /* ubiquitous-eureka-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ubiquitous-eureka-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1109EC52C7EA94B00633647 /* ubiquitous_eureka_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ubiquitous_eureka_swiftuiApp.swift; sourceTree = "<group>"; };
+		B1109EC72C7EA94B00633647 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B1109EC92C7EA94B00633647 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B1109ECB2C7EA94C00633647 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1109ECE2C7EA94C00633647 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B1109ED82C7EAA3600633647 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B1109EDB2C7EAA5900633647 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B1109EDD2C7EAA6200633647 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		B1109EDF2C7EAA6E00633647 /* AuthenticationSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSuccessView.swift; sourceTree = "<group>"; };
+		B1109EE12C7EAA7F00633647 /* FireAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAuthManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B1D920E82C7E74B8006D4951 /* Frameworks */ = {
+		B1109EBF2C7EA94B00633647 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1109ED72C7EA9FB00633647 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B1D920E22C7E74B8006D4951 = {
+		B1109EB92C7EA94B00633647 = {
 			isa = PBXGroup;
 			children = (
-				B1D920ED2C7E74B8006D4951 /* ubiquitous-eureka */,
-				B1D920EC2C7E74B8006D4951 /* Products */,
+				B1109ED82C7EAA3600633647 /* GoogleService-Info.plist */,
+				B1109EC42C7EA94B00633647 /* ubiquitous-eureka-swiftui */,
+				B1109EC32C7EA94B00633647 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		B1D920EC2C7E74B8006D4951 /* Products */ = {
+		B1109EC32C7EA94B00633647 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B1D920EB2C7E74B8006D4951 /* ubiquitous-eureka.app */,
+				B1109EC22C7EA94B00633647 /* ubiquitous-eureka-swiftui.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B1D920ED2C7E74B8006D4951 /* ubiquitous-eureka */ = {
+		B1109EC42C7EA94B00633647 /* ubiquitous-eureka-swiftui */ = {
 			isa = PBXGroup;
 			children = (
-				B1D920EE2C7E74B8006D4951 /* ubiquitous_eurekaApp.swift */,
-				B1330BF62C7E879D0016036F /* GoogleService-Info.plist */,
-				B1D920F02C7E74B8006D4951 /* ContentView.swift */,
-				B1D920F22C7E74B8006D4951 /* Item.swift */,
-				B1D920F42C7E74B9006D4951 /* Assets.xcassets */,
-				B1D920F62C7E74B9006D4951 /* Preview Content */,
+				B1109EC52C7EA94B00633647 /* ubiquitous_eureka_swiftuiApp.swift */,
+				B1109EC72C7EA94B00633647 /* ContentView.swift */,
+				B1109EDA2C7EAA4F00633647 /* Authentication */,
+				B1109EC92C7EA94B00633647 /* Item.swift */,
+				B1109ECB2C7EA94C00633647 /* Assets.xcassets */,
+				B1109ECD2C7EA94C00633647 /* Preview Content */,
 			);
-			path = "ubiquitous-eureka";
+			path = "ubiquitous-eureka-swiftui";
 			sourceTree = "<group>";
 		};
-		B1D920F62C7E74B9006D4951 /* Preview Content */ = {
+		B1109ECD2C7EA94C00633647 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				B1D920F72C7E74B9006D4951 /* Preview Assets.xcassets */,
+				B1109ECE2C7EA94C00633647 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B1109EDA2C7EAA4F00633647 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				B1109EDB2C7EAA5900633647 /* LoginView.swift */,
+				B1109EDD2C7EAA6200633647 /* RegistrationView.swift */,
+				B1109EDF2C7EAA6E00633647 /* AuthenticationSuccessView.swift */,
+				B1109EE12C7EAA7F00633647 /* FireAuthManager.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B1D920EA2C7E74B8006D4951 /* ubiquitous-eureka */ = {
+		B1109EC12C7EA94B00633647 /* ubiquitous-eureka-swiftui */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B1D920FB2C7E74B9006D4951 /* Build configuration list for PBXNativeTarget "ubiquitous-eureka" */;
+			buildConfigurationList = B1109ED22C7EA94C00633647 /* Build configuration list for PBXNativeTarget "ubiquitous-eureka-swiftui" */;
 			buildPhases = (
-				B1D920E72C7E74B8006D4951 /* Sources */,
-				B1D920E82C7E74B8006D4951 /* Frameworks */,
-				B1D920E92C7E74B8006D4951 /* Resources */,
+				B1109EBE2C7EA94B00633647 /* Sources */,
+				B1109EBF2C7EA94B00633647 /* Frameworks */,
+				B1109EC02C7EA94B00633647 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "ubiquitous-eureka";
-			productName = "ubiquitous-eureka";
-			productReference = B1D920EB2C7E74B8006D4951 /* ubiquitous-eureka.app */;
+			name = "ubiquitous-eureka-swiftui";
+			packageProductDependencies = (
+				B1109ED62C7EA9FB00633647 /* FirebaseAuth */,
+			);
+			productName = "ubiquitous-eureka-swiftui";
+			productReference = B1109EC22C7EA94B00633647 /* ubiquitous-eureka-swiftui.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B1D920E32C7E74B8006D4951 /* Project object */ = {
+		B1109EBA2C7EA94B00633647 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					B1D920EA2C7E74B8006D4951 = {
+					B1109EC12C7EA94B00633647 = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
-			buildConfigurationList = B1D920E62C7E74B8006D4951 /* Build configuration list for PBXProject "ubiquitous-eureka" */;
+			buildConfigurationList = B1109EBD2C7EA94B00633647 /* Build configuration list for PBXProject "ubiquitous-eureka-swiftui" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,44 +141,51 @@
 				en,
 				Base,
 			);
-			mainGroup = B1D920E22C7E74B8006D4951;
-			productRefGroup = B1D920EC2C7E74B8006D4951 /* Products */;
+			mainGroup = B1109EB92C7EA94B00633647;
+			packageReferences = (
+				B1109ED52C7EA9FB00633647 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = B1109EC32C7EA94B00633647 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B1D920EA2C7E74B8006D4951 /* ubiquitous-eureka */,
+				B1109EC12C7EA94B00633647 /* ubiquitous-eureka-swiftui */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B1D920E92C7E74B8006D4951 /* Resources */ = {
+		B1109EC02C7EA94B00633647 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1D920F82C7E74B9006D4951 /* Preview Assets.xcassets in Resources */,
-				B1D920F52C7E74B9006D4951 /* Assets.xcassets in Resources */,
-				B1330BF72C7E879D0016036F /* GoogleService-Info.plist in Resources */,
+				B1109ECF2C7EA94C00633647 /* Preview Assets.xcassets in Resources */,
+				B1109ECC2C7EA94C00633647 /* Assets.xcassets in Resources */,
+				B1109ED92C7EAA3600633647 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B1D920E72C7E74B8006D4951 /* Sources */ = {
+		B1109EBE2C7EA94B00633647 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1D920F12C7E74B8006D4951 /* ContentView.swift in Sources */,
-				B1D920F32C7E74B8006D4951 /* Item.swift in Sources */,
-				B1D920EF2C7E74B8006D4951 /* ubiquitous_eurekaApp.swift in Sources */,
+				B1109EE22C7EAA7F00633647 /* FireAuthManager.swift in Sources */,
+				B1109EE02C7EAA6E00633647 /* AuthenticationSuccessView.swift in Sources */,
+				B1109EC82C7EA94B00633647 /* ContentView.swift in Sources */,
+				B1109ECA2C7EA94B00633647 /* Item.swift in Sources */,
+				B1109EDC2C7EAA5900633647 /* LoginView.swift in Sources */,
+				B1109EC62C7EA94B00633647 /* ubiquitous_eureka_swiftuiApp.swift in Sources */,
+				B1109EDE2C7EAA6200633647 /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		B1D920F92C7E74B9006D4951 /* Debug */ = {
+		B1109ED02C7EA94C00633647 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -216,7 +248,7 @@
 			};
 			name = Debug;
 		};
-		B1D920FA2C7E74B9006D4951 /* Release */ = {
+		B1109ED12C7EA94C00633647 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -272,14 +304,14 @@
 			};
 			name = Release;
 		};
-		B1D920FC2C7E74B9006D4951 /* Debug */ = {
+		B1109ED32C7EA94C00633647 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ubiquitous-eureka/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ubiquitous-eureka-swiftui/Preview Content\"";
 				DEVELOPMENT_TEAM = 6W56PZLJZG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -293,7 +325,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pjb.den.ubiquitous-eureka";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pjb.den.ubiquitous-eureka-swiftui";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -301,14 +333,14 @@
 			};
 			name = Debug;
 		};
-		B1D920FD2C7E74B9006D4951 /* Release */ = {
+		B1109ED42C7EA94C00633647 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ubiquitous-eureka/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ubiquitous-eureka-swiftui/Preview Content\"";
 				DEVELOPMENT_TEAM = 6W56PZLJZG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -322,7 +354,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pjb.den.ubiquitous-eureka";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pjb.den.ubiquitous-eureka-swiftui";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -333,25 +365,44 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B1D920E62C7E74B8006D4951 /* Build configuration list for PBXProject "ubiquitous-eureka" */ = {
+		B1109EBD2C7EA94B00633647 /* Build configuration list for PBXProject "ubiquitous-eureka-swiftui" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B1D920F92C7E74B9006D4951 /* Debug */,
-				B1D920FA2C7E74B9006D4951 /* Release */,
+				B1109ED02C7EA94C00633647 /* Debug */,
+				B1109ED12C7EA94C00633647 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B1D920FB2C7E74B9006D4951 /* Build configuration list for PBXNativeTarget "ubiquitous-eureka" */ = {
+		B1109ED22C7EA94C00633647 /* Build configuration list for PBXNativeTarget "ubiquitous-eureka-swiftui" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B1D920FC2C7E74B9006D4951 /* Debug */,
-				B1D920FD2C7E74B9006D4951 /* Release */,
+				B1109ED32C7EA94C00633647 /* Debug */,
+				B1109ED42C7EA94C00633647 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B1109ED52C7EA9FB00633647 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B1109ED62C7EA9FB00633647 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1109ED52C7EA9FB00633647 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = B1D920E32C7E74B8006D4951 /* Project object */;
+	rootObject = B1109EBA2C7EA94B00633647 /* Project object */;
 }
