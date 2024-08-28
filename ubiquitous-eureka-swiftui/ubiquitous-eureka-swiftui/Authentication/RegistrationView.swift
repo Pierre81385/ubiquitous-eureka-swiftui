@@ -11,13 +11,15 @@ struct RegisterView: View {
     @State private var verifyPassword: String = ""
     @State private var showAlert: Bool = false
     @State private var message: String = ""
-    @State var fireAuthManager: FireAuthViewModel = FireAuthViewModel()
+    @ObservedObject var fireAuthManager: FireAuthViewModel = FireAuthViewModel()
     
     var body: some View {
         NavigationStack{
             VStack{
                 Text("Register")
-                TextField(text: $fireAuthManager.email, label: { Text("Email Address") }).padding()
+                TextField(text: $fireAuthManager.email, label: { Text("Email Address") }).autocorrectionDisabled(true) // Disables autocorrect
+                    .textInputAutocapitalization(.never) // Disables auto-capitalization
+                    .padding()
                 SecureField(text: $fireAuthManager.password, label: { Text("Password") }).padding()
                 SecureField(text: $verifyPassword, label: { Text("Verify Password") }).padding()
                 Button(action: {

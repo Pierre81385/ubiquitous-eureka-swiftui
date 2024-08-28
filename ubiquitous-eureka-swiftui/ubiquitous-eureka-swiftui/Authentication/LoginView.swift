@@ -10,14 +10,24 @@ import SwiftUI
 struct LoginView: View {
     
     @State private var showAlert: Bool = false
+    @State private var showRegistration: Bool = false
     @State private var message: String = ""
-    @State var fireAuthManager: FireAuthViewModel = FireAuthViewModel()
+    @ObservedObject var fireAuthManager: FireAuthViewModel = FireAuthViewModel()
 
     var body: some View {
         NavigationStack{
             VStack{
                 Text("Login")
-                TextField(text: $fireAuthManager.email, label: { Text("Email Address") }).padding()
+                Button(action: {
+                    showRegistration = true
+                }, label: {
+                    Text("I don't have an account yet.")
+                }).navigationDestination(isPresented: $showRegistration, destination: {
+                    RegisterView()
+                })
+                TextField(text: $fireAuthManager.email, label: { Text("Email Address") }).autocorrectionDisabled(true) // Disables autocorrect
+                    .textInputAutocapitalization(.none) // Disables auto-capitalization
+                    .padding()
                 SecureField(text: $fireAuthManager.password, label: { Text("Password") }).padding()
                 Button(action: {
                     
