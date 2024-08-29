@@ -25,6 +25,9 @@
 		B1F910732C7FD03600C8C300 /* MediaPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F910722C7FD03600C8C300 /* MediaPickerView.swift */; };
 		B1F910752C7FEACF00C8C300 /* ImageHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F910742C7FEACF00C8C300 /* ImageHelpers.swift */; };
 		B1F910772C7FF12000C8C300 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B1F910762C7FF12000C8C300 /* FirebaseStorage */; };
+		B1F9107A2C8021AB00C8C300 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F910792C8021AB00C8C300 /* QRScanner.swift */; };
+		B1F9107C2C80249200C8C300 /* DataScannerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F9107B2C80249200C8C300 /* DataScannerRepresentable.swift */; };
+		B1F9107E2C8024A200C8C300 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F9107D2C8024A200C8C300 /* QRGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		B1F910652C7EC36000C8C300 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B1F910722C7FD03600C8C300 /* MediaPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickerView.swift; sourceTree = "<group>"; };
 		B1F910742C7FEACF00C8C300 /* ImageHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelpers.swift; sourceTree = "<group>"; };
+		B1F910792C8021AB00C8C300 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
+		B1F9107B2C80249200C8C300 /* DataScannerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerRepresentable.swift; sourceTree = "<group>"; };
+		B1F9107D2C8024A200C8C300 /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,7 @@
 			children = (
 				B1109EC52C7EA94B00633647 /* ubiquitous_eureka_swiftuiApp.swift */,
 				B1109EC72C7EA94B00633647 /* ContentView.swift */,
+				B1F910782C80219B00C8C300 /* QR */,
 				B1F9106F2C7FD01600C8C300 /* AV */,
 				B1F910622C7EC2B400C8C300 /* Location */,
 				B1109EDA2C7EAA4F00633647 /* Authentication */,
@@ -127,6 +134,16 @@
 				B1F910742C7FEACF00C8C300 /* ImageHelpers.swift */,
 			);
 			path = AV;
+			sourceTree = "<group>";
+		};
+		B1F910782C80219B00C8C300 /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				B1F910792C8021AB00C8C300 /* QRScanner.swift */,
+				B1F9107B2C80249200C8C300 /* DataScannerRepresentable.swift */,
+				B1F9107D2C8024A200C8C300 /* QRGenerator.swift */,
+			);
+			path = QR;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,14 +230,17 @@
 				B1109EE22C7EAA7F00633647 /* FireAuthManager.swift in Sources */,
 				B1F910732C7FD03600C8C300 /* MediaPickerView.swift in Sources */,
 				B1109EE02C7EAA6E00633647 /* AuthenticationSuccessView.swift in Sources */,
+				B1F9107A2C8021AB00C8C300 /* QRScanner.swift in Sources */,
 				B1109EC82C7EA94B00633647 /* ContentView.swift in Sources */,
 				B1109ECA2C7EA94B00633647 /* Item.swift in Sources */,
+				B1F9107E2C8024A200C8C300 /* QRGenerator.swift in Sources */,
 				B1F910642C7EC2C200C8C300 /* LocationManager.swift in Sources */,
 				B1109EDC2C7EAA5900633647 /* LoginView.swift in Sources */,
 				B1109EC62C7EA94B00633647 /* ubiquitous_eureka_swiftuiApp.swift in Sources */,
 				B1F910662C7EC36000C8C300 /* MapView.swift in Sources */,
 				B1109EDE2C7EAA6200633647 /* RegistrationView.swift in Sources */,
 				B1F910752C7FEACF00C8C300 /* ImageHelpers.swift in Sources */,
+				B1F9107C2C80249200C8C300 /* DataScannerRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
