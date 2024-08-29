@@ -12,7 +12,7 @@ struct LoginView: View {
     @State private var showAlert: Bool = false
     @State private var showRegistration: Bool = false
     @State private var message: String = ""
-    @StateObject var fireAuthManager: FireAuthViewModel = FireAuthViewModel()
+    @State var fireAuthManager: FireAuthViewModel = FireAuthViewModel()
 
     var body: some View {
         NavigationStack{
@@ -36,14 +36,15 @@ struct LoginView: View {
                     
                 }, label: {
                     Text("Submit")
-                }).onChange(of: fireAuthManager.status, { oldValue, newValue in
-                    message = newValue
+                }).onChange(of: fireAuthManager.currentUser, {
+                    
                     if(fireAuthManager.success == false) {
                         showAlert = true
                     }
+                    
                 })
                 .navigationDestination(isPresented: $fireAuthManager.loggedIn, destination: {
-                    AuthenticationSuccessView()
+                    AuthenticationSuccessView(user: $fireAuthManager.currentUser)
                 })
                 .alert(isPresented: $showAlert) {
                     Alert(

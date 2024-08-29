@@ -7,13 +7,15 @@
 
 import Foundation
 import FirebaseAuth
+import Observation
 
-class FireAuthViewModel: ObservableObject {
-    @Published var email: String = ""
-    @Published var password: String = ""
-    @Published var success: Bool = false
-    @Published var status: String = ""
-    @Published var loggedIn: Bool = false
+@Observable class FireAuthViewModel {
+    var currentUser: User? = nil
+    var email: String = ""
+    var password: String = ""
+    var success: Bool = false
+    var status: String = ""
+    var loggedIn: Bool = false
     private var handle: AuthStateDidChangeListenerHandle?
     
     func CreateUser() {
@@ -36,6 +38,7 @@ class FireAuthViewModel: ObservableObject {
                 self.loggedIn = false
             case .some(let user):
                 print("FOUND: \(user.uid)!")
+                self.currentUser = user
                 self.loggedIn = true
             }
         }

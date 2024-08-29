@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct AuthenticationSuccessView: View {
+    @Binding var user: User?
     @State private var show: Bool = false
     
     var body: some View {
         VStack{
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            Text("I'm in!")
+            Text("Hello, World!")
+            Text("ID: \(user?.uid ?? "")")
             Button("Upload", action: {
                 show = true
             }).navigationDestination(isPresented: $show, destination: {
@@ -23,6 +25,6 @@ struct AuthenticationSuccessView: View {
     }
 }
 
-#Preview {
-    AuthenticationSuccessView()
-}
+//#Preview {
+//    AuthenticationSuccessView()
+//}
