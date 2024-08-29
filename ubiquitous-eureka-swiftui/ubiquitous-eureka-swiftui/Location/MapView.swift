@@ -24,6 +24,7 @@ struct MapView: View {
                     if let location = locationManager.location {
                         Text("Latitude: \(location.coordinate.latitude)")
                         Text("Longitude: \(location.coordinate.longitude)")
+                        Text("Altitude: \(location.altitude)")
                     } else {
                         Text("Fetching location...")
                     }

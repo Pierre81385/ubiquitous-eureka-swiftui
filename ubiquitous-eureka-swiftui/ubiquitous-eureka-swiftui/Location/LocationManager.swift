@@ -13,6 +13,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var location: CLLocation?
     @Published var authorizationStatus: CLAuthorizationStatus?
+    @Published var altitude: Double = 0.0
     
     override init() {
         super.init()
@@ -35,9 +36,12 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.first
+        guard let location = locations.last else { return }
+        altitude = location.altitude
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         authorizationStatus = status
     }
+    
 }
