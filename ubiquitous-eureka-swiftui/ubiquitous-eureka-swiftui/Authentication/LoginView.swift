@@ -44,7 +44,7 @@ struct LoginView: View {
                     
                 })
                 .navigationDestination(isPresented: $fireAuthManager.loggedIn, destination: {
-                    AuthenticationSuccessView(user: $fireAuthManager.currentUser)
+                    UserSetupView(user: $fireAuthManager.currentUser)
                 })
                 .alert(isPresented: $showAlert) {
                     Alert(

@@ -10,96 +10,80 @@ import PhotosUI
 import FirebaseStorage
 
 struct MediaPickerView: View {
-    @State private var selectedItems: [PhotosPickerItem] = []
-    @State private var images: [UIImage] = []
-    @State private var videoURL: URL?
-    @State private var isUploading = false
+    @Binding var mediaManager: MediaPickerViewModel
+    @State private var showImagePicker: Bool = true
 
     var body: some View {
         VStack {
-            PhotosPicker(
-                selection: $selectedItems,
-                matching: .any(of: [.images, .videos]),
-                photoLibrary: .shared()) {
-                Text("Select Images or Video")
-            }
-            .onChange(of: selectedItems) { oldItems, newItems in
-                Task {
-                    await loadMedia(from: newItems)
-                }
+            if (showImagePicker) {
+                PhotosPicker(
+                    selection: $mediaManager.selectedItems,
+                    matching: .any(of: [.images, .videos]),
+                    photoLibrary: .shared()) {
+                        Image(systemName: "person.crop.circle.badge.plus").resizable()
+                            .foregroundStyle(.black)
+                            .frame(width: 50, height: 50)
+                    }
+                    .onChange(of: mediaManager.selectedItems) { oldItems, newItems in
+                        Task {
+                            await mediaManager.loadMedia(from: newItems)
+                        }
+                    }
+                    .onChange(of: mediaManager.images, {
+                        if (!mediaManager.images.isEmpty) {
+                            showImagePicker = false
+                        }
+                    })
             }
 
-            if !images.isEmpty {
-                ForEach(images, id: \.self) { image in
+            if !mediaManager.images.isEmpty {
+                ForEach(mediaManager.images, id: \.self) { image in
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
                         .frame(height: 200)
+                        .onTapGesture {
+                            mediaManager.selectedItems = []
+                            mediaManager.images = []
+                            mediaManager.imageURLs = []
+                            mediaManager.videoURL = nil
+                            showImagePicker = true
+                        }
                 }
             }
 
-            if let videoURL = videoURL {
-                Text("Video Selected: \(videoURL.lastPathComponent)")
+            if let videoURL = mediaManager.videoURL {
+                Text("Video Selected: \(mediaManager.videoURL!.lastPathComponent)")
+                //needs player
             }
-
-            Button(action: uploadMedia) {
-                Text("Upload Media")
+            
+            if (!showImagePicker) {
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        mediaManager.selectedItems = []
+                        mediaManager.images = []
+                        mediaManager.imageURLs = []
+                        mediaManager.videoURL = nil
+                        showImagePicker = true
+                    }, label: {
+                        Image(systemName: "xmark").tint(Color.black)
+                    })
+                    Spacer()
+                    Button(action: mediaManager.uploadMedia) {
+                        Image(systemName: "checkmark").tint(Color.black)
+                    }
+                    .disabled(mediaManager.isUploading)
+                    Spacer()
+                }.padding()
             }
-            .disabled(isUploading)
         }
         .padding()
     }
 
-    private func loadMedia(from items: [PhotosPickerItem]) async {
-        for item in items {
-            // Load the media as either Data (for images) or URL (for video)
-            if let imageData = try? await item.loadTransferable(type: Data.self),
-               let image = UIImage(data: imageData) {
-                images.append(image)
-            } else if let videoURL = try? await item.loadTransferable(type: URL.self) {
-                // Load video URL
-                self.videoURL = videoURL
-            }
-        }
-    }
-
-    private func uploadMedia() {
-        isUploading = true
-
-        let storage = Storage.storage().reference()
-        let group = DispatchGroup()
-
-        for image in images {
-            group.enter()
-            if let data = image.jpegData(compressionQuality: 0.8) {
-                let imageRef = storage.child("images/\(UUID().uuidString).jpg")
-                imageRef.putData(data, metadata: nil) { _, error in
-                    if let error = error {
-                        print("Error uploading image: \(error.localizedDescription)")
-                    }
-                    group.leave()
-                }
-            }
-        }
-
-        if let videoURL = videoURL {
-            group.enter()
-            let videoRef = storage.child("videos/\(UUID().uuidString).mov")
-            videoRef.putFile(from: videoURL, metadata: nil) { _, error in
-                if let error = error {
-                    print("Error uploading video: \(error.localizedDescription)")
-                }
-                group.leave()
-            }
-        }
-
-        group.notify(queue: .main) {
-            isUploading = false
-            print("Upload completed")
-        }
-    }
+   
 }
 
-#Preview {
-    MediaPickerView()
-}
+//#Preview {
+//    MediaPickerView()
+//}

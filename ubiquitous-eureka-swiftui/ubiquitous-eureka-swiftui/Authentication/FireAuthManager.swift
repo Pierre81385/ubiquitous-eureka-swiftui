@@ -13,6 +13,8 @@ import Observation
     var currentUser: User? = nil
     var email: String = ""
     var password: String = ""
+    var displayName: String = ""
+    var avatarURL: String = ""
     var success: Bool = false
     var status: String = ""
     var loggedIn: Bool = false
@@ -153,4 +155,42 @@ import Observation
             self.status = signOutError.description
         }
     }
+    
+    func updateDisplayName() {
+            guard let user = Auth.auth().currentUser else {
+                self.status = "No user is signed in."
+                return
+            }
+            
+            let changeRequest = user.createProfileChangeRequest()
+            changeRequest.displayName = displayName
+            changeRequest.commitChanges { error in
+                if let error = error {
+                    self.success = false
+                    self.status = "Failed to update display name: \(error.localizedDescription)"
+                } else {
+                    self.success = true
+                    self.status = "Display name updated successfully!"
+                }
+            }
+        }
+    
+    func updateAvatar() {
+            guard let user = Auth.auth().currentUser else {
+                self.status = "No user is signed in."
+                return
+            }
+            
+            let changeRequest = user.createProfileChangeRequest()
+            changeRequest.photoURL = URL(string: avatarURL)
+            changeRequest.commitChanges { error in
+                if let error = error {
+                    self.success = false
+                    self.status = "Failed to update your avatar: \(error.localizedDescription)"
+                } else {
+                    self.success = true
+                    self.status = "Avatar updated successfully!"
+                }
+            }
+        }
 }
