@@ -9,47 +9,77 @@ import SwiftUI
 import FirebaseAuth
 
 struct UserSetupView: View {
-    @Binding var user: User?
-    @State var showAvatar: Bool = false
-    @State var setupComplete: Bool = false
     @State var mediaManager: MediaPickerViewModel = MediaPickerViewModel()
     @State var authenticationManager: FireAuthViewModel = FireAuthViewModel()
+    @State var checkingUser: Bool = true
+    @State var showAvatar: Bool = false
+    @State var setupComplete: Bool = false
     
     var body: some View {
-        VStack{
-            Text("ID: \(user?.uid ?? "")")
-            Spacer()
-            Text("Hello, World!")
-            if (showAvatar) {
-                AsyncAwaitImageView(imageUrl: URL(string: mediaManager.imageURLs[0])!)
-                    .scaledToFit()
-                    .frame(height: 200)
-                    .clipShape(Circle())
-            } else {
-                MediaPickerView(mediaManager: $mediaManager)
+        NavigationStack{
+            VStack{
+                if(checkingUser) {
+                    VStack{
+                        ProgressView()
+                        Text("Verifying your Account.")
+                    }
+                } else {
+                    VStack{
+                        Spacer()
+                        if (showAvatar) {
+                            AsyncAwaitImageView(imageUrl: URL(string: mediaManager.imageURLs[0])!)
+                                .scaledToFill()
+                                .frame(width: 325, height: 325)
+                                .clipShape(Circle())
+                        } else {
+                            VStack{
+                                MediaPickerView(mediaManager: $mediaManager, uploadType: "profile")
+                                Text("Upload a Profile Picture")
+                            }
+                        }
+                        TextField(text: $authenticationManager.displayName, label: {
+                            Text("Display Name")
+                        }).multilineTextAlignment(.center).padding()
+                        Spacer()
+                        Button(action: {
+                            authenticationManager.updateDisplayName()
+                        }, label: {
+                            Text("Save")
+                        }).onChange(of: authenticationManager.status, {
+                            if(authenticationManager.success) {
+                                setupComplete = true
+                            }
+                        })
+                        .padding()
+                    }
+                }
             }
-            TextField(text: $authenticationManager.displayName, label: {
-                Text("Username???")
-            }).multilineTextAlignment(.center)
-            Spacer()
-            Button(action: {
-                authenticationManager.avatarURL = mediaManager.imageURLs[0]
-                authenticationManager.updateAvatar()
-                authenticationManager.updateDisplayName()
-                setupComplete = true
-            }, label: {
-                Text("Save")
-            }).navigationDestination(isPresented: $setupComplete, destination: {
+            .onAppear{
+                authenticationManager.GetCurrentUser()
+                if(authenticationManager.currentUser?.photoURL != nil && authenticationManager.currentUser?.displayName != nil)
+                {
+                    setupComplete = true
+                } else {
+                    checkingUser = false
+                }
+            }
+            .onChange(of: mediaManager.imageURLs) { oldValue, newValue in
+                if (!newValue.isEmpty) {
+                    authenticationManager.avatarURL = newValue[0]
+                    authenticationManager.updateAvatar()
+                }
+            }
+            .onChange(of: authenticationManager.status, {
+                oldValue, newValue in
+                showAvatar = authenticationManager.success
+            })
+            .navigationDestination(isPresented: $setupComplete, destination: {
                 HomeView()
             })
-        }.onChange(of: mediaManager.imageURLs) { oldValue, newValue in
-            if (!newValue.isEmpty) {
-                showAvatar = true
-            }
         }
     }
 }
 
-//#Preview {
-//    AuthenticationSuccessView()
-//}
+#Preview {
+    UserSetupView()
+}

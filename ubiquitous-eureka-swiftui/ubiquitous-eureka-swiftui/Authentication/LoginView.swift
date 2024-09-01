@@ -17,16 +17,17 @@ struct LoginView: View {
     var body: some View {
         NavigationStack{
             VStack{
-                Text("Login")
+                Text("Login").fontWeight(.ultraLight).font(.system(size: 34)).padding()
                 Button(action: {
                     showRegistration = true
                 }, label: {
-                    Text("I don't have an account yet.")
+                    Text("I don't have an account yet.").tint(.teal).fontWeight(.semibold).font(.system(size: 14))
                 }).navigationDestination(isPresented: $showRegistration, destination: {
-                    RegisterView()
+                    RegisterView().navigationBarBackButtonHidden(true)
                 })
-                TextField(text: $fireAuthManager.email, label: { Text("Email Address") }).autocorrectionDisabled(true) // Disables autocorrect
-                    .textInputAutocapitalization(.none) // Disables auto-capitalization
+                Divider().padding()
+                TextField(text: $fireAuthManager.email, label: { Text("Email Address") }).autocorrectionDisabled(true)
+                    .textInputAutocapitalization(.never) // Disables auto-capitalization
                     .padding()
                 SecureField(text: $fireAuthManager.password, label: { Text("Password") }).padding()
                 Button(action: {
@@ -35,16 +36,19 @@ struct LoginView: View {
                     fireAuthManager.ListenForUserState()
                     
                 }, label: {
-                    Text("Submit")
-                }).onChange(of: fireAuthManager.currentUser, {
+                    Text("Submit").foregroundStyle(.black).fontWeight(.ultraLight).font(.system(size: 24))
+                }).padding()
+                .onChange(of: fireAuthManager.status, {
                     
                     if(fireAuthManager.success == false) {
                         showAlert = true
+                        fireAuthManager.email = ""
+                        fireAuthManager.password = ""
                     }
                     
                 })
                 .navigationDestination(isPresented: $fireAuthManager.loggedIn, destination: {
-                    UserSetupView(user: $fireAuthManager.currentUser)
+                    UserSetupView()
                 })
                 .alert(isPresented: $showAlert) {
                     Alert(
@@ -53,6 +57,8 @@ struct LoginView: View {
                         dismissButton: .default(Text("OK"))
                     )
                 }
+      
+                
             }.onAppear{
                 fireAuthManager.SignOut()
                 fireAuthManager.StopListenerForUserState()

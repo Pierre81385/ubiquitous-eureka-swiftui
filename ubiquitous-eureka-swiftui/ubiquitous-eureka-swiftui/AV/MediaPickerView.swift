@@ -11,6 +11,7 @@ import FirebaseStorage
 
 struct MediaPickerView: View {
     @Binding var mediaManager: MediaPickerViewModel
+    var uploadType: String
     @State private var showImagePicker: Bool = true
 
     var body: some View {
@@ -18,37 +19,57 @@ struct MediaPickerView: View {
             if (showImagePicker) {
                 PhotosPicker(
                     selection: $mediaManager.selectedItems,
-                    matching: .any(of: [.images, .videos]),
+                    matching: uploadType == "profile" ? .any(of: [.images]) : .any(of: [.images, .videos]),
                     photoLibrary: .shared()) {
                         Image(systemName: "person.crop.circle.badge.plus").resizable()
-                            .foregroundStyle(.black)
-                            .frame(width: 50, height: 50)
+                            .fontWeight(.ultraLight)
+                            .foregroundStyle(.teal)
+                            .frame(width: 60, height: 50)
                     }
                     .onChange(of: mediaManager.selectedItems) { oldItems, newItems in
+
                         Task {
-                            await mediaManager.loadMedia(from: newItems)
-                        }
+                                await mediaManager.loadMedia(from: newItems)
+                            }
+                        
                     }
-                    .onChange(of: mediaManager.images, {
-                        if (!mediaManager.images.isEmpty) {
+                    .onChange(of: mediaManager.images) {
+                        if !mediaManager.images.isEmpty {
                             showImagePicker = false
                         }
-                    })
+                    }
             }
 
             if !mediaManager.images.isEmpty {
-                ForEach(mediaManager.images, id: \.self) { image in
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 200)
-                        .onTapGesture {
-                            mediaManager.selectedItems = []
-                            mediaManager.images = []
-                            mediaManager.imageURLs = []
-                            mediaManager.videoURL = nil
-                            showImagePicker = true
-                        }
+                if(uploadType == "profile") {
+                    ForEach(mediaManager.images, id: \.self) { image in
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 325, height: 325)
+                            .clipShape(Circle())
+                            .onTapGesture {
+                                mediaManager.selectedItems = []
+                                mediaManager.images = []
+                                mediaManager.imageURLs = []
+                                mediaManager.videoURL = nil
+                                showImagePicker = true
+                            }
+                    }
+                } else {
+                    ForEach(mediaManager.images, id: \.self) { image in
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 250)
+                            .onTapGesture {
+                                mediaManager.selectedItems = []
+                                mediaManager.images = []
+                                mediaManager.imageURLs = []
+                                mediaManager.videoURL = nil
+                                showImagePicker = true
+                            }
+                    }
                 }
             }
 

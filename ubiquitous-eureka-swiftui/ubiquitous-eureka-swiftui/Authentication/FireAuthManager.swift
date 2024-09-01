@@ -54,17 +54,16 @@ import Observation
     
 
     
-    func GetCurrentUser() -> Bool {
+    func GetCurrentUser() {
         if Auth.auth().currentUser != nil {
+            self.currentUser = Auth.auth().currentUser
             self.success = true
             self.status = "Found user uid: \(String(describing: Auth.auth().currentUser?.uid))"
             self.loggedIn = true
-            return self.loggedIn
         } else {
             self.success = false
             self.status = "User not found!"
             self.loggedIn = false
-            return self.loggedIn
         }
     }
     
@@ -72,6 +71,7 @@ import Observation
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
                    if error != nil {
+                       self.StopListenerForUserState()
                        self.success = false
                        self.status = error?.localizedDescription ?? ""
                    } else {
@@ -157,40 +157,58 @@ import Observation
     }
     
     func updateDisplayName() {
-            guard let user = Auth.auth().currentUser else {
-                self.status = "No user is signed in."
-                return
-            }
-            
-            let changeRequest = user.createProfileChangeRequest()
-            changeRequest.displayName = displayName
-            changeRequest.commitChanges { error in
-                if let error = error {
-                    self.success = false
-                    self.status = "Failed to update display name: \(error.localizedDescription)"
-                } else {
-                    self.success = true
-                    self.status = "Display name updated successfully!"
+
+        let changeRequest = currentUser!.createProfileChangeRequest()
+        changeRequest.displayName = displayName
+
+        changeRequest.commitChanges { error in
+            if let error = error {
+                print("Failed to update Display Name: \(error.localizedDescription)")
+            } else {
+                // Optionally reload the user profile to verify the change
+                self.currentUser!.reload { reloadError in
+                    if let reloadError = reloadError {
+                        print("Failed to reload user profile: \(reloadError.localizedDescription)")
+                    } else {
+                        if self.currentUser!.displayName == self.displayName {
+                            self.success = true
+                            self.status = "Display name updated successfully!"
+                        } else {
+                            self.success = false
+                            self.status = "Display name update failed!"                        }
+                    }
                 }
             }
         }
+    }
     
     func updateAvatar() {
-            guard let user = Auth.auth().currentUser else {
-                self.status = "No user is signed in."
-                return
-            }
-            
-            let changeRequest = user.createProfileChangeRequest()
-            changeRequest.photoURL = URL(string: avatarURL)
-            changeRequest.commitChanges { error in
-                if let error = error {
-                    self.success = false
-                    self.status = "Failed to update your avatar: \(error.localizedDescription)"
-                } else {
-                    self.success = true
-                    self.status = "Avatar updated successfully!"
+        
+        guard let newPhotoURL = URL(string: avatarURL) else {
+            print("Invalid URL string: \(avatarURL)")
+            return
+        }
+
+        let changeRequest = currentUser!.createProfileChangeRequest()
+        changeRequest.photoURL = newPhotoURL
+
+        changeRequest.commitChanges { error in
+            if let error = error {
+                print("Failed to update avatar: \(error.localizedDescription)")
+            } else {
+                // Optionally reload the user profile to verify the change
+                self.currentUser!.reload { reloadError in
+                    if let reloadError = reloadError {
+                        print("Failed to reload user profile: \(reloadError.localizedDescription)")
+                    } else {
+                        if self.currentUser!.photoURL == newPhotoURL {
+                            print("Avatar updated successfully!")
+                        } else {
+                            print("Avatar update failed: URL mismatch.")
+                        }
+                    }
                 }
             }
         }
+    }
 }

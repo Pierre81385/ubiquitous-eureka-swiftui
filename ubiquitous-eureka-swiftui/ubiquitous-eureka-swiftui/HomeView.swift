@@ -12,15 +12,25 @@ struct HomeView: View {
     @State var authenticationManager: FireAuthViewModel = FireAuthViewModel()
     
     var body: some View {
+        
         VStack{
-            HStack
-            {
-                AsyncAwaitImageView(imageUrl: (authenticationManager.currentUser?.photoURL)!)
-                    .scaledToFill()
-                    .frame(width: 50, height: 50)
-                    .clipShape(Circle())
-                Text(authenticationManager.currentUser?.displayName ?? "")
+            
+            if(authenticationManager.currentUser == nil) {
+                VStack{
+                    ProgressView()
+                    Text("Loading User")
+                }
+            } else {
+                VStack{
+                    AsyncAwaitImageView(imageUrl: (authenticationManager.currentUser?.photoURL)!)
+                        .scaledToFill()
+                        .frame(width: 325, height: 325)
+                        .clipShape(Circle())
+                    Text((authenticationManager.currentUser?.displayName)!)
+                    Text((authenticationManager.currentUser?.email)!)
+                }
             }
+               
         }.onAppear{
             authenticationManager.GetCurrentUser()
         }
