@@ -19,9 +19,13 @@
 		B1109EE02C7EAA6E00633647 /* UserSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1109EDF2C7EAA6E00633647 /* UserSetupView.swift */; };
 		B1109EE22C7EAA7F00633647 /* FireAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1109EE12C7EAA7F00633647 /* FireAuthManager.swift */; };
 		B13557CF2C818F8000C1A33F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13557CE2C818F8000C1A33F /* HomeView.swift */; };
+		B13557DD2C86207700C1A33F /* CreateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13557DC2C86207700C1A33F /* CreateContentView.swift */; };
+		B13557DF2C86208200C1A33F /* ListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13557DE2C86208200C1A33F /* ListContentView.swift */; };
+		B13557E12C86208F00C1A33F /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13557E02C86208F00C1A33F /* ContentModel.swift */; };
+		B13557E32C8620A300C1A33F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13557E22C8620A300C1A33F /* ContentViewModel.swift */; };
 		B1CD4E2E2C8122EE003C6D5A /* MediaPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CD4E2D2C8122EE003C6D5A /* MediaPickerViewModel.swift */; };
 		B1F910642C7EC2C200C8C300 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F910632C7EC2C200C8C300 /* LocationManager.swift */; };
-		B1F910662C7EC36000C8C300 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F910652C7EC36000C8C300 /* MapView.swift */; };
+		B1F910662C7EC36000C8C300 /* UserMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F910652C7EC36000C8C300 /* UserMapView.swift */; };
 		B1F910692C7FC97100C8C300 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = B1F910682C7FC97100C8C300 /* SwiftProtobuf */; };
 		B1F9106B2C7FC97100C8C300 /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = B1F9106A2C7FC97100C8C300 /* SwiftProtobufPluginLibrary */; };
 		B1F910732C7FD03600C8C300 /* MediaPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F910722C7FD03600C8C300 /* MediaPickerView.swift */; };
@@ -45,9 +49,13 @@
 		B1109EDF2C7EAA6E00633647 /* UserSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetupView.swift; sourceTree = "<group>"; };
 		B1109EE12C7EAA7F00633647 /* FireAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAuthManager.swift; sourceTree = "<group>"; };
 		B13557CE2C818F8000C1A33F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B13557DC2C86207700C1A33F /* CreateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContentView.swift; sourceTree = "<group>"; };
+		B13557DE2C86208200C1A33F /* ListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContentView.swift; sourceTree = "<group>"; };
+		B13557E02C86208F00C1A33F /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		B13557E22C8620A300C1A33F /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		B1CD4E2D2C8122EE003C6D5A /* MediaPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickerViewModel.swift; sourceTree = "<group>"; };
 		B1F910632C7EC2C200C8C300 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		B1F910652C7EC36000C8C300 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B1F910652C7EC36000C8C300 /* UserMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapView.swift; sourceTree = "<group>"; };
 		B1F910722C7FD03600C8C300 /* MediaPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickerView.swift; sourceTree = "<group>"; };
 		B1F910742C7FEACF00C8C300 /* ImageHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelpers.swift; sourceTree = "<group>"; };
 		B1F910792C8021AB00C8C300 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 				B1109EC52C7EA94B00633647 /* ubiquitous_eureka_swiftuiApp.swift */,
 				B1109EC72C7EA94B00633647 /* ContentView.swift */,
 				B13557CE2C818F8000C1A33F /* HomeView.swift */,
+				B13557D92C86204600C1A33F /* Content */,
 				B1F910782C80219B00C8C300 /* QR */,
 				B1F9106F2C7FD01600C8C300 /* AV */,
 				B1F910622C7EC2B400C8C300 /* Location */,
@@ -123,11 +132,22 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		B13557D92C86204600C1A33F /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				B13557DC2C86207700C1A33F /* CreateContentView.swift */,
+				B13557DE2C86208200C1A33F /* ListContentView.swift */,
+				B13557E02C86208F00C1A33F /* ContentModel.swift */,
+				B13557E22C8620A300C1A33F /* ContentViewModel.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
 		B1F910622C7EC2B400C8C300 /* Location */ = {
 			isa = PBXGroup;
 			children = (
 				B1F910632C7EC2C200C8C300 /* LocationManager.swift */,
-				B1F910652C7EC36000C8C300 /* MapView.swift */,
+				B1F910652C7EC36000C8C300 /* UserMapView.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -233,9 +253,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B13557DF2C86208200C1A33F /* ListContentView.swift in Sources */,
 				B1109EE22C7EAA7F00633647 /* FireAuthManager.swift in Sources */,
 				B1F910732C7FD03600C8C300 /* MediaPickerView.swift in Sources */,
 				B1109EE02C7EAA6E00633647 /* UserSetupView.swift in Sources */,
+				B13557E32C8620A300C1A33F /* ContentViewModel.swift in Sources */,
+				B13557DD2C86207700C1A33F /* CreateContentView.swift in Sources */,
 				B1F9107A2C8021AB00C8C300 /* QRScanner.swift in Sources */,
 				B1109EC82C7EA94B00633647 /* ContentView.swift in Sources */,
 				B1109ECA2C7EA94B00633647 /* Item.swift in Sources */,
@@ -244,7 +267,8 @@
 				B1109EDC2C7EAA5900633647 /* LoginView.swift in Sources */,
 				B1CD4E2E2C8122EE003C6D5A /* MediaPickerViewModel.swift in Sources */,
 				B1109EC62C7EA94B00633647 /* ubiquitous_eureka_swiftuiApp.swift in Sources */,
-				B1F910662C7EC36000C8C300 /* MapView.swift in Sources */,
+				B1F910662C7EC36000C8C300 /* UserMapView.swift in Sources */,
+				B13557E12C86208F00C1A33F /* ContentModel.swift in Sources */,
 				B1109EDE2C7EAA6200633647 /* RegistrationView.swift in Sources */,
 				B13557CF2C818F8000C1A33F /* HomeView.swift in Sources */,
 				B1F910752C7FEACF00C8C300 /* ImageHelpers.swift in Sources */,

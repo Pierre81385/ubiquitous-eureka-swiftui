@@ -9,14 +9,28 @@ import SwiftUI
 import FirebaseAuth
 
 struct UserSetupView: View {
-    @State var mediaManager: MediaPickerViewModel = MediaPickerViewModel()
-    @State var authenticationManager: FireAuthViewModel = FireAuthViewModel()
-    @State var checkingUser: Bool = true
-    @State var showAvatar: Bool = false
-    @State var setupComplete: Bool = false
+    @State private var mediaManager: MediaPickerViewModel = MediaPickerViewModel()
+    @State private var authenticationManager: FireAuthViewModel = FireAuthViewModel()
+    @State private var checkingUser: Bool = true
+    @State private var showAvatar: Bool = false
+    @State private var setupComplete: Bool = false
+    @State private var logout: Bool = false
     
     var body: some View {
         NavigationStack{
+            HStack{
+                Button(action: {
+                    authenticationManager.SignOut()
+                    authenticationManager.StopListenerForUserState()
+                    logout = true
+                }, label: {
+                    Image(systemName: "chevron.left").resizable().frame(width: 15, height: 25).tint(.black)
+                }).navigationDestination(isPresented: $logout, destination: {
+                    LoginView().navigationBarBackButtonHidden(true)
+                }).padding()
+                Spacer()
+            }
+            Spacer()
             VStack{
                 if(checkingUser) {
                     VStack{
@@ -74,7 +88,7 @@ struct UserSetupView: View {
                 showAvatar = authenticationManager.success
             })
             .navigationDestination(isPresented: $setupComplete, destination: {
-                HomeView()
+                HomeView().navigationBarBackButtonHidden(true)
             })
         }
     }

@@ -50,7 +50,7 @@ struct RegisterView: View {
                     }
                 })
                 .navigationDestination(isPresented: $fireAuthManager.loggedIn, destination: {
-                    UserSetupView()
+                    UserSetupView().navigationBarBackButtonHidden(true)
                 })
                 .alert(isPresented: $showAlert) {
                     Alert(

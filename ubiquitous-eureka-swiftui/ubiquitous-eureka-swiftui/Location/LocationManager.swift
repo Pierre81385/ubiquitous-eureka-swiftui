@@ -7,13 +7,18 @@
 
 import Foundation
 import CoreLocation
+import Observation
+import MapKit
 
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+@Observable class LocationManager: NSObject, CLLocationManagerDelegate {
     private var locationManager = CLLocationManager()
-    
-    @Published var location: CLLocation?
-    @Published var authorizationStatus: CLAuthorizationStatus?
-    @Published var altitude: Double = 0.0
+    var location: CLLocation?
+    var authorizationStatus: CLAuthorizationStatus?
+    var altitude: Double = 0.0
+    var region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
+        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+    )
     
     override init() {
         super.init()

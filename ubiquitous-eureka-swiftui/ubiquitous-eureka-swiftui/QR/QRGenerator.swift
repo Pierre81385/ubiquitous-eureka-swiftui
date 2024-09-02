@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct QRCodeGen: View {
-    @State private var text = ""
+    @Binding var encode: String
         
         var body: some View {
-            VStack {
-                Image(uiImage: UIImage(data: getQRCodeDate(text: text)!)!)
+            ZStack {
+                Circle()
+                    .fill(Color.white)
+                    .frame(width: 300, height: 300)
+                    .shadow(color: .black.opacity(0.6), radius: 15, x: 5, y: 5)
+                Image(uiImage: UIImage(data: getQRCodeDate(text: encode)!)!)
                     .resizable()
-                    .frame(width: 200, height: 200)
-                Text("Enter text to encode").foregroundStyle(.white).fontWeight(.light)
-                TextField("QR code content", text: $text)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
+                    .scaledToFill()
+                    .frame(width: 150, height: 150)
+                
             }.padding()
         }
         
@@ -34,6 +36,6 @@ struct QRCodeGen: View {
         }
 }
 
-#Preview {
-    QRCodeGen()
-}
+//#Preview {
+//    QRCodeGen()
+//}
