@@ -81,12 +81,9 @@ struct UserSetupView: View {
                 if (!newValue.isEmpty) {
                     authenticationManager.avatarURL = newValue[0]
                     authenticationManager.updateAvatar()
+                    showAvatar = true
                 }
             }
-            .onChange(of: authenticationManager.status, {
-                oldValue, newValue in
-                showAvatar = authenticationManager.success
-            })
             .navigationDestination(isPresented: $setupComplete, destination: {
                 HomeView().navigationBarBackButtonHidden(true)
             })

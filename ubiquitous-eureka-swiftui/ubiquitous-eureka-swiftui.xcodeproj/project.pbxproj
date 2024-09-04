@@ -23,6 +23,7 @@
 		B13557DF2C86208200C1A33F /* ListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13557DE2C86208200C1A33F /* ListContentView.swift */; };
 		B13557E12C86208F00C1A33F /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13557E02C86208F00C1A33F /* ContentModel.swift */; };
 		B13557E32C8620A300C1A33F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13557E22C8620A300C1A33F /* ContentViewModel.swift */; };
+		B13557E52C877BEB00C1A33F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B13557E42C877BEB00C1A33F /* FirebaseFirestore */; };
 		B1CD4E2E2C8122EE003C6D5A /* MediaPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CD4E2D2C8122EE003C6D5A /* MediaPickerViewModel.swift */; };
 		B1F910642C7EC2C200C8C300 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F910632C7EC2C200C8C300 /* LocationManager.swift */; };
 		B1F910662C7EC36000C8C300 /* UserMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F910652C7EC36000C8C300 /* UserMapView.swift */; };
@@ -71,6 +72,7 @@
 				B1F9106B2C7FC97100C8C300 /* SwiftProtobufPluginLibrary in Frameworks */,
 				B1F910772C7FF12000C8C300 /* FirebaseStorage in Frameworks */,
 				B1109ED72C7EA9FB00633647 /* FirebaseAuth in Frameworks */,
+				B13557E52C877BEB00C1A33F /* FirebaseFirestore in Frameworks */,
 				B1F910692C7FC97100C8C300 /* SwiftProtobuf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +195,7 @@
 				B1F910682C7FC97100C8C300 /* SwiftProtobuf */,
 				B1F9106A2C7FC97100C8C300 /* SwiftProtobufPluginLibrary */,
 				B1F910762C7FF12000C8C300 /* FirebaseStorage */,
+				B13557E42C877BEB00C1A33F /* FirebaseFirestore */,
 			);
 			productName = "ubiquitous-eureka-swiftui";
 			productReference = B1109EC22C7EA94B00633647 /* ubiquitous-eureka-swiftui.app */;
@@ -505,6 +508,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B1109ED52C7EA9FB00633647 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		B13557E42C877BEB00C1A33F /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1109ED52C7EA9FB00633647 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 		B1F910682C7FC97100C8C300 /* SwiftProtobuf */ = {
 			isa = XCSwiftPackageProductDependency;

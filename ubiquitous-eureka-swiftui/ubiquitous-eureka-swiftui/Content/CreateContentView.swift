@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct CreateContentView: View {
+    @State private var contentManager: ContentViewModel = ContentViewModel()
     @State private var locationManager = LocationManager()
     @State private var authManager: FireAuthViewModel = FireAuthViewModel()
+    @State private var mediaManager: MediaPickerViewModel = MediaPickerViewModel()
     
     var body: some View {
         VStack{
@@ -26,9 +28,18 @@ struct CreateContentView: View {
                             
                             
                             VStack{
-                                Text("User: \(user.displayName ?? "")")
-                                Text("Longitude: \(location.coordinate.longitude)")
-                                Text("Latitude: \(location.coordinate.latitude)")
+                                MediaPickerView(mediaManager: $mediaManager, uploadType: "content")
+                                TextField("Title", text: $contentManager.content.title)
+                                TextField("Description", text: $contentManager.content.description)
+                                Button(action: {
+                                    contentManager.content.dateCreated = Date().timeIntervalSince1970
+                                    contentManager.content.locationCoordinate = location.coordinate
+                                    contentManager.content.images = mediaManager.imageURLs
+                                    contentManager.content.video = mediaManager.videoURL ?? URL(fileURLWithPath: "")
+                                    contentManager.createContent()
+                                }, label: {
+                                    Text("Submit")
+                                })
                             }
                             
                         }
@@ -49,6 +60,9 @@ struct CreateContentView: View {
             }
         }.onAppear {
             authManager.GetCurrentUser()
+            contentManager.content.creatorUID = authManager.currentUser!.uid
+            contentManager.content.creatorName = (authManager.currentUser?.displayName)!
+            contentManager.content.creatorAvatar = (authManager.currentUser?.photoURL)!
         }
     }
 }

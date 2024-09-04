@@ -13,6 +13,7 @@ struct MediaPickerView: View {
     @Binding var mediaManager: MediaPickerViewModel
     var uploadType: String
     @State private var showImagePicker: Bool = true
+    @State private var checkColor: Color = Color.black
 
     var body: some View {
         VStack {
@@ -61,7 +62,7 @@ struct MediaPickerView: View {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: 250)
+                            .frame(height: 150)
                             .onTapGesture {
                                 mediaManager.selectedItems = []
                                 mediaManager.images = []
@@ -93,6 +94,10 @@ struct MediaPickerView: View {
                     Spacer()
                     Button(action: mediaManager.uploadMedia) {
                         Image(systemName: "checkmark").tint(Color.black)
+                    }.onChange(of: mediaManager.imageURLs) { oldValue, newValue in
+                        if(oldValue.count < newValue.count) {
+                            checkColor = Color.green
+                        }
                     }
                     .disabled(mediaManager.isUploading)
                     Spacer()
