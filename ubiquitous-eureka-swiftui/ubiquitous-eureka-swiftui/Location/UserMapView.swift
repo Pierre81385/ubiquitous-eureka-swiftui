@@ -12,6 +12,7 @@ struct UserMapView: View {
 
     @State private var locationManager = LocationManager()
     @State private var authManager: FireAuthViewModel = FireAuthViewModel()
+    @State private var contentManager: ContentViewModel = ContentViewModel()
 
     var body: some View {
         VStack{
@@ -45,6 +46,23 @@ struct UserMapView: View {
                                             .padding()
                                     }
                                 }
+                                ForEach(contentManager.queriedContent.indices, id: \.self) {
+                                    index in
+                                    Annotation(contentManager.queriedContent[index].title, coordinate: contentManager.queriedContent[index].locationCoordinate) {
+                                        VStack{
+                                            Circle()
+                                                .fill(Color.white)
+                                                .frame(width: 30, height: 30)
+                                                .overlay {
+                                                    AsyncAwaitImageView(imageUrl: (URL(string: contentManager.queriedContent[index].images[0])!))
+                                                            .scaledToFill()
+                                                            .frame(width: 50, height: 50)
+                                                            .clipShape(Circle())
+                                                }
+                                                .padding()
+                                        }
+                                    }
+                                }
                             }.mapControls {
                                 MapUserLocationButton()
                                 MapCompass()
@@ -72,6 +90,9 @@ struct UserMapView: View {
             
         }.onAppear{
             authManager.GetCurrentUser()
+            Task{
+                await contentManager.getContents()
+            }
         }
     }
 }

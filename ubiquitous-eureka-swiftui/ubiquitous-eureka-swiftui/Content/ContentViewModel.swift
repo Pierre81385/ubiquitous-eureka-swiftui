@@ -13,6 +13,8 @@ import MapKit
 @Observable class ContentViewModel {
     var content: ContentData = ContentData(creatorUID: "", creatorName: "", creatorAvatar: URL(fileURLWithPath: ""), locationCoordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0), dateCreated: 0.0, images: [], video: URL(fileURLWithPath: ""), title: "", description: "", likes: [], disLikes: [])
     var queriedContent: [ContentData] = []
+    var status: String = ""
+    var success: Bool = false
     private var db = Firestore.firestore()
     
     func getLocationByAddress(address: String) {
@@ -46,13 +48,45 @@ import MapKit
             
             do {
                 try docRef.setData(from: self.content)
-//                self.status = "Success!"
-//                self.success = true
+                self.status = "Success!"
+                self.success = true
             }
             catch {
-//                self.status = "Error: \(error.localizedDescription)"
-//                self.success = false
+                self.status = "Error: \(error.localizedDescription)"
+                self.success = false
             }
+        }
+    
+    func getContents() async {
+            db.collection("content")
+                .addSnapshotListener { querySnapshot, error in
+                    guard let documents = querySnapshot?.documents else {
+                        self.status = "Error: \(String(describing: error?.localizedDescription))"
+                        self.success = false
+                        return
+                    }
+                    self.queriedContent = documents.compactMap { queryDocumentSnapshot -> ContentData? in
+                        return try? queryDocumentSnapshot.data(as: ContentData.self)
+                    }
+                    self.status = "Success! Found Owners"
+                    self.success = true
+                }
+
+        }
+    
+    func updateContributor(documentId: String) {
+            
+               let docRef = db.collection("contributors").document(documentId)
+               do {
+                 try docRef.setData(from: content)
+                   self.status = "Success!"
+                   self.success = true
+               }
+               catch {
+                   self.status = "Error: \(error.localizedDescription)"
+                   self.success = false
+               }
+             
         }
      
      func deleteContributor() {

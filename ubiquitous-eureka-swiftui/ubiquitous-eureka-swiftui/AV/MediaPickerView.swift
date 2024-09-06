@@ -18,27 +18,34 @@ struct MediaPickerView: View {
     var body: some View {
         VStack {
             if (showImagePicker) {
-                PhotosPicker(
-                    selection: $mediaManager.selectedItems,
-                    matching: uploadType == "profile" ? .any(of: [.images]) : .any(of: [.images, .videos]),
-                    photoLibrary: .shared()) {
-                        Image(systemName: "person.crop.circle.badge.plus").resizable()
-                            .fontWeight(.ultraLight)
-                            .foregroundStyle(.teal)
-                            .frame(width: 60, height: 50)
-                    }
-                    .onChange(of: mediaManager.selectedItems) { oldItems, newItems in
+                Rectangle()
+                            .fill(Color.white)
+                            .frame(width: 325, height: 325)
+                            .cornerRadius(20)
+                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
+                            .overlay(
+                                PhotosPicker(
+                                    selection: $mediaManager.selectedItems,
+                                    matching: uploadType == "profile" ? .any(of: [.images]) : .any(of: [.images, .videos]),
+                                    photoLibrary: .shared()) {
+                                        Image(systemName: "person.crop.circle.badge.plus").resizable()
+                                            .fontWeight(.ultraLight)
+                                            .foregroundStyle(.teal)
+                                            .frame(width: 60, height: 50)
+                                    }
+                                    .onChange(of: mediaManager.selectedItems) { oldItems, newItems in
 
-                        Task {
-                                await mediaManager.loadMedia(from: newItems)
-                            }
-                        
-                    }
-                    .onChange(of: mediaManager.images) {
-                        if !mediaManager.images.isEmpty {
-                            showImagePicker = false
-                        }
-                    }
+                                        Task {
+                                                await mediaManager.loadMedia(from: newItems)
+                                            }
+                                        
+                                    }
+                                    .onChange(of: mediaManager.images) {
+                                        if !mediaManager.images.isEmpty {
+                                            showImagePicker = false
+                                        }
+                                    }
+                            )
             }
 
             if !mediaManager.images.isEmpty {
@@ -59,17 +66,14 @@ struct MediaPickerView: View {
                     }
                 } else {
                     ForEach(mediaManager.images, id: \.self) { image in
+                        
                         Image(uiImage: image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 150)
-                            .onTapGesture {
-                                mediaManager.selectedItems = []
-                                mediaManager.images = []
-                                mediaManager.imageURLs = []
-                                mediaManager.videoURL = nil
-                                showImagePicker = true
-                            }
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 320, height: 320)
+                                    .cornerRadius(20)
+                                    .clipped() // Ensures the image doesn't overflow outside the rounded corners
+                                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
                     }
                 }
             }

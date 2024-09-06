@@ -78,12 +78,15 @@ struct HomeView: View {
                             }, label: {
                                 Image(systemName: "plus.circle").resizable().frame(width: 40, height: 40).tint(.teal).padding()
                             }).sheet(isPresented: $showCreate, content: {
-                                CreateContentView()
+                                CreateContentView(showSheet: $showCreate)
                             })
                             Spacer()
                             Button(action: {
+                                showList = true
                             }, label: {
                                 Image(systemName: "square.grid.2x2").resizable().frame(width: 40, height: 40).tint(.teal).padding()
+                            }).sheet(isPresented: $showList, content: {
+                                ListContentView(showSheet: $showList)
                             })
                             Spacer()
                         }
